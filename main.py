@@ -3,10 +3,9 @@
 import requests
 import sys
 import pyperclip
-import clipboard
 
 def getURLID():
-    text = clipboard.paste()
+    text = pyperclip.paste()
     text = text.strip()
     result = 0
     if len(text) <= 6:
@@ -23,15 +22,12 @@ def extractMeetingURL(InformationExtract):
     InformationExtract = str(InformationExtract)
     t = InformationExtract.find('"live_class_link":"')
     add = 19
-    t = t +add
+    t = t + add
 
     z = InformationExtract.find('","zoom_password"')
 
     url = InformationExtract[t:z]
     return url
-
-
-
 
 classDefaultURL = "https://ap.zinedu.com/student/get-live-class-join-status/?status_id="
 
